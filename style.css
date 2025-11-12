@@ -7,51 +7,54 @@
 }
 
 body {
-    background-color: hsl(222, 26%, 31%);
     font-family: 'League Spartan', sans-serif;
+    background-color: hsl(222, 26%, 31%);
 }
 
 main {
     width: 25rem;
-    max-width: 95%;
+    max-width: 98%;
     margin: 4rem auto;
 }
 
 section {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 1.2rem;
 }
 
-#header {
+main #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
+    margin-bottom: 1.2rem;
 }
 
-#header #logo {
+main #header #logo {
     cursor: pointer;
 }
 
-#header #theme {
+main #header #theme-container {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-#header #theme h4 {
+main #header #theme-container h4 {
     font-size: .7rem;
 }
 
-main #screen {
+main #display-section #calculator-display {
     font-size: 2.5rem;
     font-weight: 700;
-    padding: 24px;
+    margin-bottom: 1.2rem;
+    padding: 16px 24px;
     width: 100%;
     color: hsl(0, 100%, 100%);
     text-align: right;
     background-color: hsl(224, 36%, 15%);
+    border: none;
+    border-radius: 8px;
 }
 
 main #btn-container {
@@ -65,40 +68,31 @@ main #btn-container {
     background-color: hsl(223, 31%, 20%);
 }
 
-main #btn-container .digit-btn {
+main #btn-container .gray-btn {
     --text-size: 2rem;
     --text-color: hsl(221, 14%, 31%);
     --bg-color: hsl(0, 0%, 90%);
     --shadow-color: hsl(28, 16%, 65%);
 }
 
-main #btn-container .digit-btn:hover {
+main #btn-container .gray-btn:hover {
     background-color: hsl(0, 100%, 100%);
 }
 
-main #btn-container #del-btn {
+main #btn-container .navy-btn {
     --text-size: 1.2rem;
     --text-color: hsl(0, 100%, 100%);
     --bg-color: hsl(225, 21%, 49%);
     --shadow-color: hsl(224, 28%, 35%);
 }
 
-main #btn-container #del-btn:hover {
+main #btn-container .navy-btn:hover {
     background-color: hsl(225, 21%, 65%);
 }
 
 main #btn-container #reset-btn {
     grid-column: 1 / 3;
-    --text-size: 1.2rem;
-    --text-color: hsl(0, 100%, 100%);
-    --bg-color: hsl(225, 21%, 49%);
-    --shadow-color: hsl(224, 28%, 35%);
 }
-
-main #btn-container #reset-btn:hover {
-    background-color: hsl(225, 21%, 65%);
-}
-
 
 main #btn-container #operator-btn {
     grid-column: 3 / 5;
@@ -115,6 +109,7 @@ main #btn-container #operator-btn:hover {
 main #btn-container button {
     font-size: var(--text-size);
     font-weight: 700;
+    margin-bottom: 0;
     color: var(--text-color);
     background-color: var(--bg-color);
     text-align: center;
@@ -123,4 +118,53 @@ main #btn-container button {
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0px 3px var(--shadow-color);
+    transition: all 0.3s ease;
 }    
+
+/* For tablets screens */
+@media (max-width: 48rem) {
+    main {
+        margin: 2rem auto 0;
+    }   
+}
+
+/* For large screen mobile phones */
+@media (max-width: 27rem) {
+    main {
+        display: block;
+    }
+
+    
+    main #header #theme-container {
+        gap: 1.5rem;
+    }
+}
+
+/* For medium screen mobile phones */
+@media (max-width: 24rem) {
+    main section {
+        border-radius: 4px;
+    }
+    
+    main #header {
+        padding: 0.2rem;
+    }
+
+    main #display-section #calculator-display {
+        border-radius: 4px;
+    }
+
+
+    main #header #theme-container h4 {
+        font-size: 0.5rem;
+    }
+
+    main #display-section #calculator-display {
+        padding: 16px 12px;
+    }
+    
+    main #btn-container {
+        padding: 12px 12px;
+        gap: 16px;
+    }
+}

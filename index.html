@@ -12,7 +12,7 @@
     <!-- Header section -->
     <section id="header">
       <h1 id="logo">calc</h1>
-      <div id="theme">
+      <div id="theme-container">
         <h4>THEME</h4>
         <div id="toggle-container">
           <input type="checkbox" name="check" id="check">
@@ -21,28 +21,30 @@
       </div>
     </section>
 
-    <!-- Screen section -->
-     <section id="screen">323</section>
+    <!-- Calculator Screen section -->
+     <section id="display-section">
+      <input type="text" name="calculator-display" id="calculator-display" disabled>
+     </section>
 
-     <!-- button section -->
+     <!-- Calculator button section -->
       <section id="btn-container">
-        <button class="digit-btn" id="seven-btn">7</button>
-        <button class="digit-btn" id="eight-btn">8</button>
-        <button class="digit-btn" id="nine-btn">9</button>
-        <button class="" id="del-btn">DEL</button>
-        <button class="digit-btn" id="four-btn">4</button>
-        <button class="digit-btn" id="five-btn">5</button>
-        <button class="digit-btn" id="six-btn">6</button>
-        <button class="digit-btn" id="plus-btn">+</button>
-        <button class="digit-btn" id="one-btn">1</button>
-        <button class="digit-btn" id="two-btn">2</button>
-        <button class="digit-btn" id="three-btn">3</button>
-        <button class="digit-btn" id="minus-btn">-</button>
-        <button class="digit-btn" id="">.</button>
-        <button class="digit-btn" id="zero-btn">0</button>
-        <button class="digit-btn" id="divide-btn">/</button>
-        <button class="digit-btn" id="multiply-btn">x</button>
-        <button class="" id="reset-btn">RESET</button>
+        <button class="gray-btn digit-btn" id="seven-btn">7</button>
+        <button class="gray-btn digit-btn" id="eight-btn">8</button>
+        <button class="gray-btn digit-btn" id="nine-btn">9</button>
+        <button class=" navy-btn" id="del-btn">DEL</button>
+        <button class="gray-btn digit-btn" id="four-btn">4</button>
+        <button class="gray-btn digit-btn" id="five-btn">5</button>
+        <button class="gray-btn digit-btn" id="six-btn">6</button>
+        <button class="gray-btn" id="plus-btn">+</button>
+        <button class="gray-btn digit-btn" id="one-btn">1</button>
+        <button class="gray-btn digit-btn" id="two-btn">2</button>
+        <button class="gray-btn digit-btn" id="three-btn">3</button>
+        <button class="gray-btn" id="minus-btn">-</button>
+        <button class="gray-btn" id="decimal-btn">.</button>
+        <button class="gray-btn digit-btn" id="zero-btn">0</button>
+        <button class="gray-btn" id="divide-btn">/</button>
+        <button class="gray-btn" id="multiply-btn">x</button>
+        <button class=" navy-btn" id="reset-btn">RESET</button>
         <button class="" id="operator-btn">=</button>
       </section>
   </main>
