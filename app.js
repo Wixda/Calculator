@@ -17,12 +17,14 @@ const operatorBtns = document.querySelectorAll('.operator-btns');
 // const multiplyBtn = document.querySelector('#multiply-btn');
 // const plusBtn = document.querySelector('#plus-btn');
 const equalBtn = document.querySelector('#equal-btn');
-const delBtn = document.querySelector('#delBtn');
+// const delBtn = document.querySelector('#delBtn');
 const resetBtn = document.querySelector('#reset-btn');
 
-let operand1
-let operand2
-let operator
+let operand1;
+let operand2;
+let operator;
+let currentValue;
+let currentOperator;
 
 function add (num1, num2) {
     return num1 + num2;
@@ -41,42 +43,80 @@ function divide (num1, num2) {
 }
 
 //this function takes an operator and two numbers and then calls one of the above functions on the numbers
-function operate (operator, operand1, operand2) {
+function compute (operator, operand1, operand2) {
     if (operator === "+") {
-        add (operand1, operand2);
+        return add (operand1, operand2);
     } else if(operator === "-") {
-        substract (operand1, operand2);
+        return substract (operand1, operand2);
     } else if (operator === "*") {
-        multiply (operand1, operand2);
+        return multiply (operand1, operand2);
     } else if (operator === "/") {
-        divide (operand1, operand2);
+        if (operand2 === 0) {
+            return "undefined";
+        }
+        return divide (operand1, operand2);
     } else return null;
+
 }
 
 // this function populate the display when you click the digit buttons
 allDigitsBtns.forEach( button => {
     button.addEventListener('click', () => {
+        // check if an operand and a operator is already inputed
+        if (currentOperator !== undefined){
+            operator = currentOperator;
+            currentOperator = undefined;
+            calculatorDisplay.value = '';
+            currentValue = undefined;
+        }
+        
+        // This displays the content of the number button being clicked
         const clickedButton = event.target;
         calculatorDisplay.value += clickedButton.textContent;
+        currentValue = Number(calculatorDisplay.value);
     })
 })
 
 operatorBtns.forEach( operatorBtn => {
     operatorBtn.addEventListener('click', () => {
         // the operator buttons should not do anything if there's nothing on the screen
-        if (calculatorDisplay.value == '') {
-            return
+        if (calculatorDisplay.value === '') {
+            return;
         } else {
-            operand1 = calculatorDisplay.value;
-            calculatorDisplay.value = '';
-            operator = event.target.data.operator;
-            console.log(operator);
+            // change the number on the screen into a number and assign it to operand1
+            operand1 = currentValue;
+            // store the last operator that was inputed in the current operator
+            currentOperator = event.target.dataset.operator;
+            console.log(currentOperator);
             }
     })
 })
 
 
 equalBtn.addEventListener('click', () => {
-    operand2 = calculatorDisplay.value;
+    // This ensures the calculator does not run when the screen is empty
+    if(calculatorDisplay.value == '') {
+        return;
+    //This ensures the calculator does not run when the operands have not been imputed
+    } else if (operand1 === undefined) {
+        return;
+    //This ensures the calculator does not run when the operator is undefined 
+    } else if(operator === undefined) {
+        return;
+    } else {
+        operand2 = currentValue;
+        let result = compute(operator, operand1, operand2);
+        calculatorDisplay.value = result;
+        operand1 = result;
+        operand2 = undefined;
+    }
+})
 
+resetBtn.addEventListener('click', () => {
+    operand1 = undefined;
+    operand2 = undefined;
+    operator = undefined;
+    currentValue = undefined;
+    currentOperator = undefined;
+    calculatorDisplay.value = "";
 })
