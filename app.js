@@ -17,7 +17,7 @@ const operatorBtns = document.querySelectorAll('.operator-btns');
 // const multiplyBtn = document.querySelector('#multiply-btn');
 // const plusBtn = document.querySelector('#plus-btn');
 const equalBtn = document.querySelector('#equal-btn');
-// const delBtn = document.querySelector('#delBtn');
+const delBtn = document.querySelector('#del-btn');
 const resetBtn = document.querySelector('#reset-btn');
 
 let operand1;
@@ -87,7 +87,6 @@ operatorBtns.forEach( operatorBtn => {
             operand1 = currentValue;
             // store the last operator that was inputed in the current operator
             currentOperator = event.target.dataset.operator;
-            console.log(currentOperator);
             }
     })
 })
@@ -111,6 +110,24 @@ equalBtn.addEventListener('click', () => {
         operand2 = undefined;
     }
 })
+
+delBtn.addEventListener('click', () => {
+    // The function should not run if there's nothing to display
+    if (calculatorDisplay.value === '') {
+        return
+    } else {
+        let newDisplay = (calculatorDisplay.value).slice(0, -1);
+        calculatorDisplay.value = newDisplay;
+        currentValue = removeLastDigitString(currentValue);
+    }
+
+})
+
+function removeLastDigitString(number) {
+  const numString = number.toString(); // Convert to string
+  const newString = numString.slice(0, -1); // Remove the last character
+  return Number(newString); // Convert back to a number
+}
 
 resetBtn.addEventListener('click', () => {
     operand1 = undefined;
