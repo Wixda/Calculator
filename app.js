@@ -59,6 +59,19 @@ function compute (operator, operand1, operand2) {
 
 }
 
+document.addEventListener('keydown', event => {
+    if(!isNaN(event.key)) {
+        calculatorDisplay.value += event.key;
+        currentValue = Number(calculatorDisplay.value);
+    } else if (calculatorDisplay.value === '') {
+        return
+    } else if (event.key === "Backspace"){
+        let newDisplay = (calculatorDisplay.value).slice(0, -1);
+        calculatorDisplay.value = newDisplay;
+        currentValue = removeLastDigitString(currentValue);
+    }
+})
+
 // this function populate the display when you click the digit buttons
 allDigitsBtns.forEach( button => {
     button.addEventListener('click', () => {
