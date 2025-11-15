@@ -82,6 +82,10 @@ main #btn-container .gray-btn:hover {
     background-color: hsl(0, 100%, 100%);
 }
 
+main #btn-container .gray-btn:active {
+    background-color: hsl(0, 100%, 100%);
+}
+
 main #btn-container .navy-btn {
     --text-size: 1.2rem;
     --text-color: hsl(0, 100%, 100%);
@@ -90,6 +94,10 @@ main #btn-container .navy-btn {
 }
 
 main #btn-container .navy-btn:hover {
+    background-color: hsl(225, 21%, 65%);
+}
+
+main #btn-container .navy-btn:active {
     background-color: hsl(225, 21%, 65%);
 }
 
@@ -106,6 +114,10 @@ main #btn-container #equal-btn {
 }
 
 main #btn-container #equal-btn:hover {
+    background-color: hsl(6, 63%, 59%);
+}
+
+main #btn-container #equal-btn:active {
     background-color: hsl(6, 63%, 59%);
 }
 
