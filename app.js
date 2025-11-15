@@ -61,6 +61,13 @@ function compute (operator, operand1, operand2) {
 
 document.addEventListener('keydown', event => {
     if(!isNaN(event.key)) {
+        if (currentOperator !== undefined){
+            operator = currentOperator;
+            currentOperator = undefined;
+            calculatorDisplay.value = '';
+            currentValue = undefined;
+        }
+        
         calculatorDisplay.value += event.key;
         currentValue = Number(calculatorDisplay.value);
     } else if (calculatorDisplay.value === '') {
