@@ -1,21 +1,7 @@
 const calculatorDisplay = document.querySelector('#calculator-display');
-// const oneBtn = document.querySelector('#one-btn');
-// const twoBtn = document.querySelector('#two-btn');
-// const threeBtn = document.querySelector('#three-btn');
-// const fourBtn = document.querySelector('#four-btn');
-// const fiveBtn = document.querySelector('#five-btn');
-// const sixBtn = document.querySelector('#six-btn');
-// const sevenBtn = document.querySelector('#seven-btn');
-// const eightBtn = document.querySelector('#eight-btn');
-// const nineBtn = document.querySelector('#nine-btn');
-// const zeroBtn = document.querySelector('#zero-btn')
 const allDigitsBtns = document.querySelectorAll('.digit-btn');
 const operatorBtns = document.querySelectorAll('.operator-btns');
 const decimalBtn = document.querySelector('#decimal-btn');
-// const minusBtn = document.querySelector('#minus-btn');
-// const divideBtn = document.querySelector('#divide-btn');
-// const multiplyBtn = document.querySelector('#multiply-btn');
-// const plusBtn = document.querySelector('#plus-btn');
 const equalBtn = document.querySelector('#equal-btn');
 const delBtn = document.querySelector('#del-btn');
 const resetBtn = document.querySelector('#reset-btn');
@@ -59,7 +45,9 @@ function compute (operator, operand1, operand2) {
 
 }
 
+// This function responds to the necessary key press
 document.addEventListener('keydown', event => {
+    // This populate the display when the digits keypad are pressed
     if(!isNaN(event.key)) {
         if (currentOperator !== undefined){
             operator = currentOperator;
@@ -70,6 +58,7 @@ document.addEventListener('keydown', event => {
         
         calculatorDisplay.value += event.key;
         currentValue = Number(calculatorDisplay.value);
+        
     } else if (calculatorDisplay.value === '') {
         return
     } else if (event.key === "Backspace"){
