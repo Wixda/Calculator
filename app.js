@@ -11,7 +11,7 @@ const calculatorDisplay = document.querySelector('#calculator-display');
 // const zeroBtn = document.querySelector('#zero-btn')
 const allDigitsBtns = document.querySelectorAll('.digit-btn');
 const operatorBtns = document.querySelectorAll('.operator-btns');
-// const decimalBtn = document.querySelector('#decimal-btn');
+const decimalBtn = document.querySelector('#decimal-btn');
 // const minusBtn = document.querySelector('#minus-btn');
 // const divideBtn = document.querySelector('#divide-btn');
 // const multiplyBtn = document.querySelector('#multiply-btn');
@@ -91,6 +91,13 @@ operatorBtns.forEach( operatorBtn => {
     })
 })
 
+decimalBtn.addEventListener('click', () => {
+    if (!Number.isInteger(currentValue)) {
+        return;
+    } else {
+        calculatorDisplay.value += '.';
+    }
+})
 
 equalBtn.addEventListener('click', () => {
     // This ensures the calculator does not run when the screen is empty

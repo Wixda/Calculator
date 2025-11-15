@@ -52,6 +52,9 @@ main #display-section #calculator-display {
     width: 100%;
     color: hsl(0, 100%, 100%);
     text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     background-color: hsl(224, 36%, 15%);
     border: none;
     border-radius: 8px;
