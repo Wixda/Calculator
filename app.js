@@ -86,11 +86,27 @@ allDigitsBtns.forEach( button => {
     })
 })
 
+decimalBtn.addEventListener('click', () => {
+    if (!Number.isInteger(currentValue)) {
+        return;
+    } else {
+        calculatorDisplay.value += '.';
+    }
+})
+
 operatorBtns.forEach( operatorBtn => {
     operatorBtn.addEventListener('click', () => {
         // the operator buttons should not do anything if there's nothing on the screen
         if (calculatorDisplay.value === '') {
             return;
+        } else if(operator !== undefined) {
+            operand2 = currentValue;
+            let result = compute(operator, operand1, operand2);
+            console.log(result);
+            calculatorDisplay.value = result;
+            operand1 = result;
+            operand2 = undefined;
+            currentOperator = event.target.dataset.operator;
         } else {
             // change the number on the screen into a number and assign it to operand1
             operand1 = currentValue;
@@ -98,14 +114,6 @@ operatorBtns.forEach( operatorBtn => {
             currentOperator = event.target.dataset.operator;
             }
     })
-})
-
-decimalBtn.addEventListener('click', () => {
-    if (!Number.isInteger(currentValue)) {
-        return;
-    } else {
-        calculatorDisplay.value += '.';
-    }
 })
 
 equalBtn.addEventListener('click', () => {
