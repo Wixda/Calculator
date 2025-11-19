@@ -102,7 +102,6 @@ operatorBtns.forEach( operatorBtn => {
         } else if(operator !== undefined) {
             operand2 = currentValue;
             let result = compute(operator, operand1, operand2);
-            console.log(result);
             calculatorDisplay.value = result;
             operand1 = result;
             operand2 = undefined;
