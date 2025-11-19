@@ -51,7 +51,7 @@ main #display-section #calculator-display {
     margin-bottom: 1.2rem;
     padding: 16px 24px;
     width: 100%;
-    color: hsl(0, 100%, 100%);
+    color: hsl(0, 0%, 100%);
     text-align: right;
     overflow: hidden;
     white-space: nowrap;
